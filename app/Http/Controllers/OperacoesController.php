@@ -56,9 +56,9 @@ class OperacoesController extends Controller
     }
 
     public function historico() {
-        $historico = Operacoes::all();
+        $historico = Operacoes::all()->count();
 
-        if(!isset($historico)) {
+        if($historico == 0) {
             return response()->json(['vazio' => 'não há registros no banco de dados!']);
         }
 
